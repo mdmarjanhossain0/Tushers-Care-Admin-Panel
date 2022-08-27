@@ -1,0 +1,41 @@
+.exam {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    /* height: 50vh; */
+}
+
+.exam .exam-list {
+    width: 65%;
+    /* height: 50vh; */
+    display: flex;
+    /* justify-content: center; */
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.exam .exam-form {
+    width: 35%;
+    /* height: 50vh; */
+    margin-top: 1rem;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .exam {
+        flex-direction: column-reverse;
+    }
+
+    .exam .exam-list {
+        width: 100%;
+    }
+
+    .exam .exam-form {
+        width: 100%;
+    }
+}

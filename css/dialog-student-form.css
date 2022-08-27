@@ -1,19 +1,16 @@
-.student .student-form {
-    width: 30%;
-    display: inline-block;
-    position: absolute;
+.student-form {
+    width: 100%;
+    position: relative;
     right: 0px;
-    height: 150vh;
     border: 1px dotted var(--primary);
     box-shadow: 3px 3px 5px 1px var(--primary);
-    margin: 5vh;
 }
 
 
 
 
 
-.student .student-form {
+.student-form {
     color: var(--primary);
     background: var(--light);
     text-align: center;
@@ -22,9 +19,7 @@
 
 
 
-
-
-.student .student-form h2 {
+.student-form h2 {
     position: sticky;
     top: 0;
     background: var(--light);
@@ -32,32 +27,12 @@
     border-bottom: 1px solid var(--primary);
     margin-bottom: 1rem;
 }
-.student-form .form-field {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.student .student-form .form-field .select {
+
+.student-form .form-field .select {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
-}
-
-/* input {
-    display: none;
-} */
-
-label {
-    cursor: pointer;
-}
-
-#imageName {
-    color: var(--primary);
-    /* margin: 1rem; */
-    border: none;
-    box-shadow: none;
 }
 
 
@@ -69,27 +44,39 @@ label {
     padding: 0.3rem;
     margin: 0.5rem;
     box-shadow: 1px 1px 1px 1px var(--primary);
-    width: 90%;
 }
 
-.student .student-form .form-field .student-property {
+.student-form .form-field .student-property {
     width: 90%;
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 0.3rem;
     box-shadow: 1px 1px 1px 1px var(--primary);
 }
 
-.student .student-form .form-field button {
+.student-form .form-field button {
     font-size: 1.5rem;
     padding: 0.3rem;
     margin: 0.5rem;
     background: var(--primary);
     color: white;
     box-shadow: 5px 1px 1px 1px var(--primary);
+
+
+    margin-bottom: 5rem;
+}
+
+.student-form .form-field label {
+    width: 90%;
+    padding: 1rem;
+    margin: 0.3rem;
+    box-shadow: 1px 1px 1px 1px var(--primary);
 }
 
 @media screen and (max-width: 768px) {
-    .student .student-form {
-        display: none;
+    .student-form {
+        width: 100%;
+        right: 0px;
+        border: 1px dotted var(--primary);
+        box-shadow: 3px 3px 5px 1px var(--primary);
     }
 }

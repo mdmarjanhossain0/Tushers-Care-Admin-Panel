@@ -116,6 +116,10 @@
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
+.student .student-list .list .student-card:hover {
+    box-shadow: 5px 5px 5px 1px var(--primary);
+}
+
 .student .student-list .list .student-card .image {
     width: 15%;
     display: flex;
@@ -138,7 +142,7 @@
     margin-left: 0.5rem;
 }
 
-.student .add-student-header {
+.add-student-header {
     display: none;
     background: blueviolet;
     color: white;
@@ -162,7 +166,7 @@
         padding: 1%;
     }
 
-    .student .add-student-header {
+    .add-student-header {
         width: 100%;
         display: block;
         position: absolute;
