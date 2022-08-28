@@ -1,0 +1,94 @@
+.contact-us {
+    display: flex;
+    margin: 3vw;
+    margin-top: 10vh;
+    flex-wrap: wrap;
+}
+
+.contact-us .content {
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    font-size: 1.5rem;
+    padding-right: 10vw;
+}
+
+.contact-us .content h3 {
+    color: var(--light-blue);
+}
+
+
+
+
+
+
+
+
+.contact-us .content h1 {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    font-size: 4rem;
+}
+
+.contact-us .content p {
+    font-size: 2rem;
+}
+
+.contact-us .image {
+    width: 45vw;
+}
+
+
+
+
+.contact-us .image img {
+    width: 100%;
+}
+
+.contact-us .content > button {
+    display: inline-block;
+    background: var(--light-blue);
+    color: var(--white);
+    padding: 1.5rem;
+    font-size: 1/5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    width: 200px;
+}
+
+.contact-us .content>button:hover {
+    background: var(--white);
+    color: var(--light-blue);
+    cursor: pointer;
+    border: 2px solid var(--light-blue);
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 992px) {
+    .contact-us .content {
+        width: 90%;
+    }
+
+
+    .contact-us .content {
+        padding-right: 0;
+        margin-right: 0;
+    }
+    .contact-us .image {
+        width: 100%;
+    }
+}

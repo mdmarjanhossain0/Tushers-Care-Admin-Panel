@@ -3,14 +3,14 @@
     margin: 0px;
     padding: 0px;
     position: relative;
+    min-height: max-content;
 }
 
 .student .student-list {
     width: 65%;
     display: inline-block;
-    /* height: 100vh; */
+    min-height: 150vh;
     margin-top: 5vh;
-    /* border: 1px solid var(--primary); */
     margin: 1%;
     margin-top: 5vh;
     position: relative;
@@ -99,7 +99,10 @@
 
 
 
-
+.student .student-form {
+    height: 100%;
+    display: block;
+}
 .student .student-list .list {
     padding: 1%;
     background: var(--light);

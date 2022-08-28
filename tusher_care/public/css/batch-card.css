@@ -1,0 +1,19 @@
+.batch-card {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    padding: 1rem;
+    background: var(--light);
+    line-height: 1.5;
+    border: 1px solid var(--primary);
+    text-align: left !important;
+}
+
+.batch-card .header {
+    border-bottom: 1px solid gray;
+}
+
+.batch-card:hover {
+    box-shadow: 5px 5px 5px var(--primary);
+}

@@ -1,0 +1,102 @@
+.resource {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../images/sdk-bg.jpg);
+    color: var(--white);
+    padding: 5vh;
+}
+
+.resource h3 {
+    font-size: 2.3rem;
+}
+
+.resource h1 {
+    font-size: 2.5rem;
+    margin: 15px;
+}
+
+
+
+
+
+
+.resource p {
+    font-size: 1.9rem;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 3vh;
+    text-align: center;
+}
+
+.resource span {
+    font-size: 1.9rem;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 3vh;
+    text-align: center;
+}
+
+
+
+
+.resource .button {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 25%;
+}
+.resource .button > button {
+    color: var(--light-blue);
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5vh;
+    padding: 10px;
+}
+
+.resource .button > button:hover {
+    background: var(--light-blue);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: 2px solid var(--light-blue);
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .resource .button {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 40%;
+    }    
+}
+
+@media screen and (max-width: 992px) {
+    .resource .button {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 50%;
+    }    
+}
+
+
+@media screen and (max-width: 576px) {
+    .resource .button {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 1.3rem;
+    }    
+}

@@ -1,0 +1,82 @@
+.student-form {
+    width: 100%;
+    position: relative;
+    right: 0px;
+    border: 1px dotted var(--primary);
+    box-shadow: 3px 3px 5px 1px var(--primary);
+}
+
+
+
+
+
+.student-form {
+    color: var(--primary);
+    background: var(--light);
+    text-align: center;
+}
+
+
+
+
+.student-form h2 {
+    position: sticky;
+    top: 0;
+    background: var(--light);
+    padding: 1rem;
+    border-bottom: 1px solid var(--primary);
+    margin-bottom: 1rem;
+}
+
+.student-form .form-field .select {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+
+
+
+
+.box-border-p {
+    border: 1px solid var(--primary);
+    padding: 0.3rem;
+    margin: 0.5rem;
+    box-shadow: 1px 1px 1px 1px var(--primary);
+}
+
+.student-form .form-field .student-property {
+    width: 90%;
+    padding: 1rem;
+    margin: 0.3rem;
+    box-shadow: 1px 1px 1px 1px var(--primary);
+}
+
+.student-form .form-field button {
+    font-size: 1.5rem;
+    padding: 0.3rem;
+    margin: 0.5rem;
+    background: var(--primary);
+    color: white;
+    box-shadow: 5px 1px 1px 1px var(--primary);
+
+
+    margin-bottom: 5rem;
+}
+
+.student-form .form-field label {
+    width: 90%;
+    padding: 1rem;
+    margin: 0.3rem;
+    box-shadow: 1px 1px 1px 1px var(--primary);
+}
+
+@media screen and (max-width: 768px) {
+    .student-form {
+        width: 100%;
+        right: 0px;
+        border: 1px dotted var(--primary);
+        box-shadow: 3px 3px 5px 1px var(--primary);
+    }
+}

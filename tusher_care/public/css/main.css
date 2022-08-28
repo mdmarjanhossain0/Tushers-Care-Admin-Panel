@@ -1,6 +1,6 @@
 .main-content {
     width: 80%;
-    min-height: 100vh;
+    min-height: 100%;
     margin-left: 20%;
     overflow-x: hidden;
 }

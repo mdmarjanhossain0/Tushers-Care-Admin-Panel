@@ -1,0 +1,97 @@
+.signup {
+    display: flex;
+    margin-top: 85px;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20%;
+    margin-left: 20%;
+    /* background: red; */
+}
+
+.signup form {
+    border: 3px dotted #f1f1f1;
+}
+
+.signup input[type=text],
+.signup input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.signup button {
+    background-color: var(--primary);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.signup button:hover {
+    opacity: 0.8;
+}
+
+.signup .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.signup .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+.signup img.avatar {
+    width: 15rem;
+    border-radius: 50%;
+}
+
+.signup .container {
+    padding: 16px;
+    font-size: 1.7rem;
+    color: var(--primary);
+}
+
+.signup span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+
+
+.signup form .title {
+    display: flex;
+    width: 100%;
+    min-height: 5rem;
+    align-items: center;
+    justify-content: center;
+}
+.signup form .title h1 {
+    font-size: 3rem;
+    color: var(--primary);
+}
+@media screen and (max-width: 768px) {
+    .signup span.psw {
+        display: block;
+        float: none;
+    }
+
+    .signup .cancelbtn {
+        width: 100%;
+    }
+
+
+    .signup {
+        /* margin: 1%; */
+        width: 100%;
+        border: 1px dotted #ccc;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,49 @@
+.list-dialog-blur {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.61);
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
+.list-dialog {
+    position: fixed;
+    top: 25%;
+    left: 30%;
+    width: 50%;
+    height: 70%;
+    background: var(--light);
+    z-index: 10001;
+    box-shadow: 3px 3px 5px 1px gray;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.list-dialog h1 {
+    border-bottom: 1px solid gray;
+    padding: 0.5rem;
+}
+
+.list-dialog .close {
+    position: absolute;
+    right: 0;
+    font-size: 1.5rem;
+}
+
+
+@media screen and (max-width: 768px) {
+    .list-dialog {
+        top: 15%;
+        left: 5%;
+        width: 90%;
+        height: 70%;
+        background: var(--light);
+        z-index: 10000;
+        box-shadow: 3px 3px 5px 1px gray;
+        text-align: center;
+        border-radius: 5px;
+    }
+}
