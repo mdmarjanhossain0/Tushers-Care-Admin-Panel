@@ -1,11 +1,13 @@
 .student .student-form {
     width: 30%;
-    display: inline-block;
-    position: absolute;
-    right: 0px;
-    height: 150vh;
+    /* display: inline-block; */
+    /* position: absolute; */
+    /* right: 0px; */
+    max-height: 150vh;
     border: 1px dotted var(--primary);
     box-shadow: 3px 3px 5px 1px var(--primary);
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
     margin: 5vh;
 }
 
@@ -90,6 +92,10 @@ label {
 
 @media screen and (max-width: 768px) {
     .student .student-form {
-        display: none;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        margin-top: 5vh;
     }
 }

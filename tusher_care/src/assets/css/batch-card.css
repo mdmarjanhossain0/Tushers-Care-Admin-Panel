@@ -17,3 +17,9 @@
 .batch-card:hover {
     box-shadow: 5px 5px 5px var(--primary);
 }
+
+.batch-card i {
+    position: absolute;
+    top: 2%;
+    right: 4%;
+}

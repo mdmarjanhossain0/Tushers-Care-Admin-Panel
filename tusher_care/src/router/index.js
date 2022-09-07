@@ -1,7 +1,78 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router'
 import AdminView from '../views/HomeView.vue'
+import StudentUpdateView from '../views/StudentUpdateView.vue'
+import BatchView from '../views/BatchView.vue'
+import BatchStudentView from '../views/BatchStudentView.vue'
+import CourseView from '../views/CourseView.vue'
+import ExamView from '../views/ExamView.vue'
+import NoticeView from '../views/NoticeView.vue'
+import PaymentView from '../views/PaymentView.vue'
 
-const routes = [
+
+
+
+
+import StaffView from '../views/StaffView.vue'
+
+import TeacherView from '../views/TeacherView.vue'
+
+const routes = [{
+    path: '/student/:pk',
+    name: 'update',
+    component: StudentUpdateView
+  },
+  {
+    path: '/batch/:pk',
+    name: 'batchstudent',
+    component: BatchStudentView
+  },
+  {
+    path: '/batch',
+    name: 'batch',
+    component: BatchView
+  },
+
+  {
+    path: '/course',
+    name: 'course',
+    component: CourseView
+  },
+  {
+    path: '/exam',
+    name: 'exam',
+    component: ExamView
+  },
+  {
+    path: '/notice',
+    name: 'notice',
+    component: NoticeView
+  },
+
+
+  {
+
+    path: '/payment',
+    name: 'payment',
+    component: PaymentView
+  },
+
+  {
+
+    path: '/staff',
+    name: 'staff',
+    component: StaffView
+  },
+
+  {
+
+    path: '/teacher',
+    name: 'teacher',
+    component: TeacherView
+  },
+
   {
     path: '/',
     name: 'home',

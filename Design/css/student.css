@@ -92,7 +92,7 @@
 .student .student-list .search-card .filters p:hover {
     width: 33%;
     padding: 0.5rem;
-    color: var(--primary);
+    /* color: var(--primary); */
     border: 1px solid var(--primary);
     font-weight: bold;
 }

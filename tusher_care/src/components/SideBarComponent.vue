@@ -7,10 +7,10 @@
 
     <div class="sidebar-menu">
       <a href="#" class="dashboard active"
-        ><i class="fa-solid fa-chart-line"></i> <span>Dashboard</span></a
+        ><i class="fa-solid fa-graduation-cap"></i> <span>Student</span></a
       >
       <a href="#" class="customer"
-        ><i class="fa-brands fa-shopify"></i> <span>Customers</span></a
+        ><i class="fa-sharp fa-solid fa-people-group"></i> <span>Batch</span></a
       >
       <a href="#" class="advertisement"
         ><i class="fa-solid fa-basket-shopping"></i> <span>Advertise</span></a
@@ -24,3 +24,26 @@
     </div>
   </div>
 </template>
+
+
+
+
+
+
+
+
+<script>
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    select_side_bar(abc) {},
+  },
+  computed: {
+    tab() {
+      return this.$store.state.side_bar_selected_tab;
+    },
+  },
+};
+</script>
