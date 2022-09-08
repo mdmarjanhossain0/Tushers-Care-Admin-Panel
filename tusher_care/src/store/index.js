@@ -21,7 +21,8 @@ export default createStore({
     courses: [],
     notifications: [],
     side_bar_selected_tab: "student",
-    is_posting: false
+    is_posting: false,
+    reports: []
   },
   mutations: {
     update_is_loading(state, data) {
@@ -68,6 +69,9 @@ export default createStore({
 
     update_teacher(state, data) {
       state.teachers = data
+    },
+    update_report(state, data) {
+      state.reports = data
     }
   }
 })

@@ -47,6 +47,7 @@
     border: none;
     text-transform: capitalize;
     overflow-x: hidden;
+    line-height: normal !important;
 }
 
 
@@ -61,8 +62,8 @@ body {
 
 
 .sidebar {
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     background: var(--light-blue);
     width: 20%;
     height: 100vh;
@@ -72,11 +73,13 @@ body {
     padding-bottom: 1rem;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     transition: left 3s;
-
+    height: 100vh;
+    /* overflow-y: scroll; */
 }
 
 .sidebar .logo {
     text-align: center;
+    display: block;
 }
 
 .sidebar .logo i {
@@ -95,7 +98,7 @@ body {
 .sidebar .sidebar-menu {
     display: flex;
     flex-direction: column;
-    margin-top: 5vh;
+    margin-top: 5%;
 }
 
 .sidebar .sidebar-menu a {
@@ -105,6 +108,8 @@ body {
     padding-left: 1.5rem;
     padding-bottom: 1.5rem;
     margin-top: 1rem;
+    height: auto;
+    overflow: hidden;
 }
 
 .sidebar .sidebar-menu a i {

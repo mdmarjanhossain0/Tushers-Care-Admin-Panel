@@ -28,13 +28,19 @@
 
             <span style="color: red">{{ password_status }}</span>
 
-            <button @click="login">Log In</button>
+            <button @click="test">Log In</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+
+
+
+
+
 
 <script>
 import axios from "axios";
@@ -49,6 +55,14 @@ export default {
     };
   },
   methods: {
+    test() {
+      var params = new FormData();
+      var config = {
+        baseURL: "http//localhost:8000/",
+      };
+      var url = "http//localhost:8000/api/account/login";
+      axios.post(url, params, config).then((response) => {});
+    },
     login() {
       const config = {
         headers: {
@@ -71,7 +85,7 @@ export default {
         this.password_status = "Enter valid mobile number";
         return;
       }
-      axios.defaults.baseURL = "";
+      axios.defaults.baseURL = "http//localhost:8000/";
       var url = "http//localhost:8000/api/account/login";
       axios
         .post(url, params, config)
@@ -114,13 +128,6 @@ export default {
   },
 };
 </script>
-
-
-
-
-
-
-
 
 <style scoped>
 #main-content {

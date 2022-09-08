@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>Admin Panel</title>
 
     <link rel="stylesheet" href="./css/style.css" />
@@ -178,15 +179,42 @@
 
         <div class="content-area">
             <div class="student">
-                <div class="add-student-header">
-                    <h3>Batch Name</h3>
-                    <i class="fa-solid fa-circle-chevron-down"></i>
-                </div>
 
                 <div class="student-list">
 
-                    
+
                     <div class="list">
+                        <div class="search-card">
+                            <div class="filters">
+                                <div style="display:flex; flex-direction: column; align-items: center;">
+                                    <label for="start-date">
+                                        Start
+
+                                    </label>
+                                    <input type="date" id="start-date" style="margin:0.5rem" />
+                                </div>
+                                <h1 style="font-weight:bolder">Report</h1>
+                                <div style="display:flex; flex-direction: column; align-items: center;">
+                                    <label for="end-date">
+                                        End
+
+                                    </label>
+                                    <input type="date" id="end-date" style="margin:0.5rem" />
+                                </div>
+                            </div>
+                            <div class="filters">
+                                <p>All</p>
+                                <p>Student</p>
+                                <p>Teacher</p>
+                                <p>Staff</p>
+
+
+
+
+
+                                <p>Other</p>
+                            </div>
+                        </div>
                         <div class="student-card">
                             <div class="image">
                                 <img src="./image/pic1.png" alt="">

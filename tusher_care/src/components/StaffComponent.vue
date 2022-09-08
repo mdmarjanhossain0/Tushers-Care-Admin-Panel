@@ -265,7 +265,7 @@ export default {
     },
 
     navigate_update(pk) {
-      this.$router.push({ path: `/student/${pk}` });
+      this.$router.push({ path: `/staff/${pk}` });
     },
 
     select_filter(abc) {
