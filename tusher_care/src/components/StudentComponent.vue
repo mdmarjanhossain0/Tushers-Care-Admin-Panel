@@ -178,7 +178,7 @@
       <div class="title">
         <input type="checkbox" id="side-menu-bar" />
         <label for="side-menu-bar" class="fas fa-bars"></label>
-        <a href="#" class="logo">Students And Batch</a>
+        <a href="#" class="logo">Students And Create</a>
       </div>
 
       <nav class="navbar">
@@ -194,12 +194,12 @@
 
     <div class="content-area">
       <div class="student">
-        <div class="add-student-header">
+        <!-- <div class="add-student-header">
           <h3>Student Form</h3>
           <label for="add" class="fas fa-bars">
             <input type="checkbox" name="df" id="add" />
           </label>
-        </div>
+        </div> -->
 
         <div class="student-list">
           <div class="search-card">
@@ -408,6 +408,7 @@
 
 <script>
 import axios from "axios";
+import { process } from "ipaddr.js";
 export default {
   data() {
     return {
@@ -440,22 +441,22 @@ export default {
     get_students() {
       this.api_calling = true;
       // var token = localStorage.getItem("token");
-      var token = "a5fa3086644fc21a6b0999cb965b11d23be14fd3";
-      // var token = "384f1e8367e69a96a0f3fb149c1aacee5d83753b";
-      console.log(token);
+      var token = this.token;
       const config = {
         headers: {
           Authorization: "Token " + token,
         },
       };
-      var url = `http://localhost:8000/api/account/student`;
+
+      var url = `${process.env.VUE_APP_BASE_URL}account/student`;
       if (this.selected_filter == "username") {
-        url = `http://localhost:8000/api/account/student?username=${this.query}`;
+        url = `${url}?username=${this.query}`;
       } else if (this.selected_filter == "mobile") {
-        url = `http://localhost:8000/api/account/student?mobile=${this.query}`;
+        url = `${url}?mobile=${this.query}`;
       } else {
-        url = `http://localhost:8000/api/account/student?pk=${this.query}`;
+        url = `${url}?pk=${this.query}`;
       }
+      this.$store.commit("update_is_loading", true);
       axios
         .get(url, config)
         .then((response) => {
@@ -518,17 +519,16 @@ export default {
 
       params.append("password", this.mobile);
       params.append("password2", this.mobile);
-      var url = "http://localhost:8000/api/account/register/student";
+      var url = `${process.env.VUE_APP_BASE_URL}account/register/student`;
+      this.$store.commit("update_is_loading", true);
       axios
         .post(url, params, config)
         .then((response) => {
-          console.log(response.data);
+          this.get_students();
         })
-        .catch((error) => {
-          console.log(error);
-        })
+        .catch((error) => {})
         .finally(() => {
-          console.log("dslkfj");
+          this.$store.commit("update_is_loading", false);
         });
     },
 
@@ -612,23 +612,15 @@ export default {
     this.get_students();
   },
   computed: {
-    // token() {
-    //   var t = localStorage.getItem("token");
-    //   if (t) {
-    //     this.$router.push("/profile");
-    //   }
-    //   return "";
-    // },
+    token() {
+      var t = localStorage.getItem("managementtusherscarecom");
+      if (t) {
+        return t;
+      }
+      return this.$router.push("/");
+    },
     students() {
       console.log("data of All " + this.$store.state.students);
-      // if (!this.api_calling && this.query != this.previous_query) {
-      //   this.get_students();
-      // }
-      // var data = this.$store.state.students.filter((o) => {
-      //   o.username.toLowerCase().startsWith(this.query.toLowerCase());
-      // });
-
-      // console.log(data);
       return this.$store.state.students;
     },
     batchs() {
@@ -663,19 +655,9 @@ export default {
     },
   },
   watch: {
-    student_name(new_value, old_value) {
-      console.log(new_value);
-      var file = document.getElementById("inputTag");
-      console.log(file.files[0]);
+    query() {
+      this.get_students();
     },
-
-    selected_batch(new_value, old_value) {
-      console.log(new_value);
-    },
-
-    // query() {
-    //   this.get_students();
-    // },
   },
 };
 </script>

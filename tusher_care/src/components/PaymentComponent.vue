@@ -181,22 +181,23 @@ export default {
     get_students() {
       this.api_calling = true;
       // var token = localStorage.getItem("token");
-      var token = "a5fa3086644fc21a6b0999cb965b11d23be14fd3";
-      // var token = "384f1e8367e69a96a0f3fb149c1aacee5d83753b";
-      console.log(token);
+      var token = this.token;
       const config = {
         headers: {
           Authorization: "Token " + token,
         },
       };
-      var url = `http://localhost:8000/api/account/student`;
+
+      var url = `${process.env.VUE_APP_BASE_URL}account/student`;
       if (this.selected_filter == "username") {
-        url = `http://localhost:8000/api/account/student?username=${this.query}`;
+        url = `${url}?username=${this.query}`;
       } else if (this.selected_filter == "mobile") {
-        url = `http://localhost:8000/api/account/student?mobile=${this.query}`;
+        url = `${url}?mobile=${this.query}`;
       } else {
-        url = `http://localhost:8000/api/account/student?pk=${this.query}`;
+        url = `${url}?pk=${this.query}`;
       }
+
+      this.$store.commit("update_is_loading", true);
       axios
         .get(url, config)
         .then((response) => {
@@ -213,22 +214,22 @@ export default {
     get_staffs() {
       this.api_calling = true;
       // var token = localStorage.getItem("token");
-      var token = "a5fa3086644fc21a6b0999cb965b11d23be14fd3";
-      // var token = "384f1e8367e69a96a0f3fb149c1aacee5d83753b";
-      console.log(token);
+      var token = this.token;
       const config = {
         headers: {
           Authorization: "Token " + token,
         },
       };
-      var url = `http://localhost:8000/api/account/staff`;
+      var url = `${process.env.VUE_APP_BASE_URL}account/staff`;
       if (this.selected_filter == "username") {
-        url = `http://localhost:8000/api/account/staff?username=${this.query}`;
+        url = `${url}?username=${this.query}`;
       } else if (this.selected_filter == "mobile") {
-        url = `http://localhost:8000/api/account/staff?mobile=${this.query}`;
+        url = `${url}?mobile=${this.query}`;
       } else {
-        url = `http://localhost:8000/api/account/staff?pk=${this.query}`;
+        url = `${url}?pk=${this.query}`;
       }
+
+      this.$store.commit("update_is_loading", true);
       axios
         .get(url, config)
         .then((response) => {
@@ -245,22 +246,22 @@ export default {
     get_teachers() {
       this.api_calling = true;
       // var token = localStorage.getItem("token");
-      var token = "a5fa3086644fc21a6b0999cb965b11d23be14fd3";
-      // var token = "384f1e8367e69a96a0f3fb149c1aacee5d83753b";
-      console.log(token);
+      var token = this.token;
       const config = {
         headers: {
           Authorization: "Token " + token,
         },
       };
-      var url = `http://localhost:8000/api/account/teacher`;
+      var url = `${process.env.VUE_APP_BASE_URL}account/teacher`;
       if (this.selected_filter == "username") {
-        url = `http://localhost:8000/api/account/teacher?username=${this.query}`;
+        url = `${url}?username=${this.query}`;
       } else if (this.selected_filter == "mobile") {
-        url = `http://localhost:8000/api/account/teacher?mobile=${this.query}`;
+        url = `${url}?mobile=${this.query}`;
       } else {
-        url = `http://localhost:8000/api/account/teacher?pk=${this.query}`;
+        url = `${url}?pk=${this.query}`;
       }
+
+      this.$store.commit("update_is_loading", true);
       axios
         .get(url, config)
         .then((response) => {
@@ -275,9 +276,7 @@ export default {
         });
     },
     create_payment() {
-      var token = "a5fa3086644fc21a6b0999cb965b11d23be14fd3";
-      // var token = "384f1e8367e69a96a0f3fb149c1aacee5d83753b";
-      console.log(token);
+      var token = this.token;
       const config = {
         headers: {
           Authorization: "Token " + token,
@@ -317,7 +316,9 @@ export default {
         params.append("note", this.note);
       }
 
-      var url = "http://localhost:8000/api/payment/student/create";
+      var url = `${process.env.VUE_APP_BASE_URL}payment/student/create`;
+
+      this.$store.commit("update_is_loading", true);
       axios
         .post(url, params, config)
         .then((response) => {
@@ -326,7 +327,9 @@ export default {
         .catch((error) => {
           console.log(error);
         })
-        .finally(() => {});
+        .finally(() => {
+          this.$store.commit("update_is_loading", false);
+        });
     },
 
     onEnter() {},
@@ -380,13 +383,13 @@ export default {
     document.getElementById("payment-dialog").style.display = "none";
   },
   computed: {
-    // token() {
-    //   var t = localStorage.getItem("token");
-    //   if (t) {
-    //     this.$router.push("/profile");
-    //   }
-    //   return "";
-    // },
+    token() {
+      var t = localStorage.getItem("managementtusherscarecom");
+      if (t) {
+        return t;
+      }
+      return this.$router.push("/");
+    },
 
     selected_group_name() {
       if (this.selected_group == "Student") {

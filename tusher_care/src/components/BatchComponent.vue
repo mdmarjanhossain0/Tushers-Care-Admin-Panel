@@ -170,7 +170,6 @@ export default {
         return;
       }
 
-      console.log(this.fee);
       if (this.fee != null && this.fee != "") {
         params.append("fee", this.fee);
         this.fee_status = "";
@@ -186,7 +185,8 @@ export default {
         this.discount_status = "Required field";
         return;
       }
-      var url = "http://localhost:8000/api/account/batch/create";
+      var url = `${process.env.VUE_APP_BASE_URL}account/batch/create`;
+      this.$store.commit("update_is_loading", true);
       axios
         .post(url, params, config)
         .then((response) => {
@@ -195,7 +195,9 @@ export default {
         .catch((error) => {
           console.log(error);
         })
-        .finally(() => {});
+        .finally(() => {
+          this.$store.commit("update_is_loading", false);
+        });
     },
 
     open_batchs() {
@@ -272,13 +274,13 @@ export default {
     });
   },
   computed: {
-    // token() {
-    //   var t = localStorage.getItem("token");
-    //   if (t) {
-    //     this.$router.push("/profile");
-    //   }
-    //   return "";
-    // },
+    token() {
+      var t = localStorage.getItem("managementtusherscarecom");
+      if (t) {
+        return t;
+      }
+      return this.$router.push("/");
+    },
     students() {
       return this.$store.state.students;
     },

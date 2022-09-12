@@ -109,6 +109,7 @@ export default {
         },
       };
       var url = "http://localhost:8000/api/account/teacher/" + pk;
+      this.$store.commit("update_is_loading", true);
       axios
         .get(url, config)
         .then((response) => {
@@ -127,9 +128,7 @@ export default {
     },
 
     update_teacher() {
-      var token = "a5fa3086644fc21a6b0999cb965b11d23be14fd3";
-      // var token = "384f1e8367e69a96a0f3fb149c1aacee5d83753b";
-      console.log(token);
+      var token = this.token;
       const config = {
         headers: {
           Authorization: "Token " + token,
@@ -167,9 +166,7 @@ export default {
 
       params.append("address", this.address);
 
-      var url =
-        "http://localhost:8000/api/account/staff/update/" +
-        this.$route.params.pk;
+      var url = `${process.env.VUE_APP_BASE_URL}account/staff/update/${this.$route.params.pk}`;
       axios
         .put(url, params, config)
         .then((response) => {
@@ -203,6 +200,13 @@ export default {
     this.get_teacher(this.$route.params.pk);
   },
   computed: {
+    token() {
+      var t = localStorage.getItem("managementtusherscarecom");
+      if (t) {
+        return t;
+      }
+      return this.$router.push("/");
+    },
     teacher() {
       var teacher = this.$store.state.teachers.find((o) => {
         o.pk == this.$route.params.pk;

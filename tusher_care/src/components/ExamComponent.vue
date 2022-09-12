@@ -155,15 +155,14 @@ export default {
     get_exams() {
       this.api_calling = true;
       // var token = localStorage.getItem("token");
-      var token = "a5fa3086644fc21a6b0999cb965b11d23be14fd3";
-      // var token = "384f1e8367e69a96a0f3fb149c1aacee5d83753b";
-      console.log(token);
+      var token = this.token;
       const config = {
         headers: {
           Authorization: "Token " + token,
         },
       };
-      var url = `http://localhost:8000/api/academic/exam`;
+      var url = `${process.env.VUE_APP_BASE_URL}academic/exam`;
+      this.$store.commit("update_is_loading", true);
       axios
         .get(url, config)
         .then((response) => {
@@ -178,9 +177,7 @@ export default {
     },
 
     create_exam() {
-      var token = "a5fa3086644fc21a6b0999cb965b11d23be14fd3";
-      // var token = "384f1e8367e69a96a0f3fb149c1aacee5d83753b";
-      console.log(token);
+      var token = this.token;
       const config = {
         headers: {
           Authorization: "Token " + token,
@@ -233,7 +230,8 @@ export default {
           courses: courses,
         };
       }
-      var url = "http://localhost:8000/api/academic/exam/create";
+      var url = `${process.env.VUE_APP_BASE_URL}academic/exam/create`;
+      this.$store.commit("update_is_loading", true);
       axios
         .post(url, params, config)
         .then((response) => {
@@ -243,7 +241,7 @@ export default {
           console.log(error);
         })
         .finally(() => {
-          console.log("dslkfj");
+          this.$store.commit("update_is_loading", false);
         });
     },
 
@@ -317,13 +315,13 @@ export default {
     this.get_exams();
   },
   computed: {
-    // token() {
-    //   var t = localStorage.getItem("token");
-    //   if (t) {
-    //     this.$router.push("/profile");
-    //   }
-    //   return "";
-    // },
+    token() {
+      var t = localStorage.getItem("managementtusherscarecom");
+      if (t) {
+        return t;
+      }
+      return this.$router.push("/");
+    },
     batchs() {
       return this.$store.state.batchs;
     },

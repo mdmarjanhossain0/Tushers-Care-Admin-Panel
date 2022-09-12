@@ -319,22 +319,18 @@ export default {
 
       params.append("password", this.mobile);
       params.append("password2", this.mobile);
-      var url =
-        "http://localhost:8000/api/account/student/update/" +
-        this.$route.params.pk;
+      var url = `${process.env.VUE_APP_BASE_URL}account/student/update/${this.$route.params.pk}`;
+      this.$store.commit("update_is_loading", true);
       axios
         .put(url, params, config)
         .then((response) => {
-          console.log(response.data);
           this.$router.push({
             path: "/",
           });
         })
-        .catch((error) => {
-          console.log(error);
-        })
+        .catch((error) => {})
         .finally(() => {
-          console.log("dslkfj");
+          this.$store.commit("update_is_loading", false);
         });
     },
 
@@ -397,6 +393,13 @@ export default {
     this.get_student(this.$route.params.pk);
   },
   computed: {
+    token() {
+      var t = localStorage.getItem("managementtusherscarecom");
+      if (t) {
+        return t;
+      }
+      return this.$router.push("/");
+    },
     student() {
       var student = this.$store.state.students.find((o) => {
         o.pk == this.$route.params.pk;

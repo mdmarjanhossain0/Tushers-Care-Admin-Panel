@@ -27,6 +27,7 @@ export default createStore({
   mutations: {
     update_is_loading(state, data) {
       state.is_loading = data
+      console.log("is loading " + data)
     },
 
     update_student(state, data) {
