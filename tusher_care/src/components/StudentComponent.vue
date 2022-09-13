@@ -178,15 +178,20 @@
       <div class="title">
         <input type="checkbox" id="side-menu-bar" />
         <label for="side-menu-bar" class="fas fa-bars"></label>
-        <a href="#" class="logo">Students And Create</a>
+        <a href="#" class="logo">Students</a>
       </div>
 
       <nav class="navbar">
         <div class="details">
-          <img src="../assets/blog-1.jpg" width="30px" height="30px" alt="" />
+          <img
+            src="{{ get_nav.profile_picture }}"
+            width="30px"
+            height="30px"
+            alt=""
+          />
           <div>
-            <h4>Marjan</h4>
-            <small>Super user</small>
+            <h4>{{ get_nav.username }}</h4>
+            <!-- <small>Super user</small> -->
           </div>
         </div>
       </nav>
@@ -448,7 +453,7 @@ export default {
         },
       };
 
-      var url = `${process.env.VUE_APP_BASE_URL}account/student`;
+      var url = `${process.env.VUE_APP_BASE_URL}/account/student`;
       if (this.selected_filter == "username") {
         url = `${url}?username=${this.query}`;
       } else if (this.selected_filter == "mobile") {
@@ -519,7 +524,7 @@ export default {
 
       params.append("password", this.mobile);
       params.append("password2", this.mobile);
-      var url = `${process.env.VUE_APP_BASE_URL}account/register/student`;
+      var url = `${process.env.VUE_APP_BASE_URL}/account/register/student`;
       this.$store.commit("update_is_loading", true);
       axios
         .post(url, params, config)
@@ -652,6 +657,17 @@ export default {
         return "---";
       }
       return this.selected_batch.fee;
+    },
+
+    get_nav() {
+      var username = localStorage.getItem("managementtusherscarecomusername");
+      var profile_picture = localStorage.getItem(
+        "managementtusherscarecomprofilepicture"
+      );
+      return {
+        username: username,
+        profile_picture: profile_picture,
+      };
     },
   },
   watch: {

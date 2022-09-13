@@ -9,10 +9,15 @@
 
       <nav class="navbar">
         <div class="details">
-          <img src="../assets/blog-1.jpg" width="30px" height="30px" alt="" />
+          <img
+            src="{{ get_nav.profile_picture }}"
+            width="30px"
+            height="30px"
+            alt=""
+          />
           <div>
-            <h4>Marjan</h4>
-            <small>Super user</small>
+            <h4>{{ get_nav.username }}</h4>
+            <!-- <small>Super user</small> -->
           </div>
         </div>
       </nav>
@@ -166,7 +171,7 @@ export default {
 
       params.append("address", this.address);
 
-      var url = `${process.env.VUE_APP_BASE_URL}account/staff/update/${this.$route.params.pk}`;
+      var url = `${process.env.VUE_APP_BASE_URL}/account/staff/update/${this.$route.params.pk}`;
       axios
         .put(url, params, config)
         .then((response) => {
@@ -212,6 +217,16 @@ export default {
         o.pk == this.$route.params.pk;
       });
       return teacher;
+    },
+    get_nav() {
+      var username = localStorage.getItem("managementtusherscarecomusername");
+      var profile_picture = localStorage.getItem(
+        "managementtusherscarecomprofilepicture"
+      );
+      return {
+        username: username,
+        profile_picture: profile_picture,
+      };
     },
   },
   watch: {},

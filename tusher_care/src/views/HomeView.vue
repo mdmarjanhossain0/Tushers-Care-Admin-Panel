@@ -16,11 +16,6 @@ import SideBarComponent from "@/components/SideBarComponent.vue";
 import LogInComponents from "@/components/LogComponent.vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 export default {
-  computed: {
-    is_loading() {
-      return this.$store.state.is_loading;
-    },
-  },
   name: "HomeView",
   components: {
     SideBarComponent,
@@ -37,6 +32,9 @@ export default {
       } else {
         return false;
       }
+    },
+    is_loading() {
+      return this.$store.state.is_loading;
     },
   },
 };

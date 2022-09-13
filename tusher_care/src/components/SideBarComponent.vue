@@ -80,6 +80,10 @@
         @click="navigate_report"
         ><i class="fa-solid fa-calendar-days"></i> <span>Report</span></a
       >
+
+      <a href="#" class="dashboard" @click="log_out"
+        ><i class="fa-solid fa-right-from-bracket"></i> <span>Log Out</span></a
+      >
     </div>
   </div>
 </template>
@@ -141,6 +145,11 @@ export default {
       this.$router.push({
         path: "/report",
       });
+    },
+
+    log_out() {
+      localStorage.removeItem("managementtusherscarecom");
+      location.reload();
     },
   },
 

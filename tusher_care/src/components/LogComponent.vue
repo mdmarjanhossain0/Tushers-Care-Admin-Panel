@@ -59,7 +59,8 @@ export default {
   },
   methods: {
     login() {
-      var url = `${process.env.VUE_APP_BASE_URL}account/login`;
+      this.response = "";
+      var url = `${process.env.VUE_APP_BASE_URL}/account/login`;
       const params = new URLSearchParams();
 
       if (this.mobile != null && this.mobile != "") {
@@ -79,11 +80,37 @@ export default {
 
       this.$store.commit("update_is_loading", true);
       axios
-        .post(url, params, config)
+        .post(url, params)
         .then((response) => {
-          localStorage.setItem("managementtusherscarecom", response.data.token);
+          console.log(response.data);
+
+          this.response = response.data.error_message;
+          if (
+            response.data.error_message == null ||
+            response.data.error_message == ""
+          ) {
+            if (response.data.is_admin || response.data.is_staff) {
+              localStorage.setItem(
+                "managementtusherscarecom",
+                response.data.token
+              );
+              localStorage.setItem(
+                "managementtusherscarecomusername",
+                response.data.username
+              );
+              localStorage.setItem(
+                "managementtusherscarecomprofilepicture",
+                response.data.profile_picture
+              );
+              location.reload();
+            } else {
+              this.response = "You are not admin or staff.";
+            }
+          }
         })
-        .catch((error) => {})
+        .catch((error) => {
+          this.response = "wrong username or password";
+        })
         .finally(() => {
           this.$store.commit("update_is_loading", false);
         });
